@@ -4,25 +4,22 @@ import { Todo } from './todo';
 
 @Component({
   selector: 'app-root',
-  providers: [TodoDataService],
+  providers: [],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  newTodo: Todo = new Todo();
-
   constructor(private todoDataService: TodoDataService) {
   }
-  toggleTodoComplete(todo) {
+  onToggleTodoComplete(todo: Todo) {
     this.todoDataService.toggleTodoComplete(todo);
   }
 
-  addTodo() {
-    this.todoDataService.addTodo(this.newTodo);
-    this.newTodo = new Todo();
+  onAddTodo(todo: Todo) {
+    this.todoDataService.addTodo(todo);
   }
 
-  removeTodo(todo){
+  onRemoveTodo(todo: Todo){
     this.todoDataService.deleteTodoById(todo.id)
   }
 
