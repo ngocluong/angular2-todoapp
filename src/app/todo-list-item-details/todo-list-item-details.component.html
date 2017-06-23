@@ -1,0 +1,30 @@
+<section class="todoapp">
+  <header class="header">
+    <h1>Edit Todo</h1>
+  </header>
+  <div class="alert alert-success" *ngIf="saveSuccess">
+      <strong>Success!</strong>
+  </div>
+  <form (submit)="onSubmit()" #commentForm="ngForm" class="todo-form">
+    <div>
+      <label for="title">Todo title</label>
+      <input type="text" name="title" [(ngModel)]="todo.title" required minlength="3" />
+    </div>
+    <div>
+      <label>Todo complete</label> <br />
+      <input name="options" ng-control="options" id="ctrue" type="radio" [value]="true" [(ngModel)]="todo.complete" > 
+      <label for="ctrue">TRUE</label>
+      <br/>
+      <input name="options" ng-control="options" id="cfalse" type="radio" [value]="false" [(ngModel)]="todo.complete" >
+      <label for="cfalse">FALSE</label>
+    </div>
+    <div>
+      <label for="description">Todo description</label>
+      <textarea name="description" rows="1" cols="50" [(ngModel)]="todo.description" required minlength="3"></textarea>
+    </div>
+    <div>
+      <button class="btn btn-primary">Submit</button>
+      <button class="btn btn-info" (click)="gotoTodos()">Back</button>
+    </div>
+  </form>
+</section>

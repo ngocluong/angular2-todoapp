@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Todo } from '../todo';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-todo-list-item',
@@ -16,7 +17,7 @@ export class TodoListItemComponent {
   @Output()
   toggleComplete: EventEmitter<Todo> = new EventEmitter();
 
-  constructor() {
+  constructor(private router: Router) {
   }
 
   toggleTodoComplete(todo: Todo) {
@@ -25,5 +26,9 @@ export class TodoListItemComponent {
 
   removeTodo(todo: Todo) {
     this.remove.emit(todo);
+  }
+
+  onSelect(todo: Todo) {
+    this.router.navigate(['/todos', todo.id]);
   }
 }

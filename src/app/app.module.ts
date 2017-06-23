@@ -10,6 +10,9 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoListItemComponent } from './todo-list-item/todo-list-item.component';
 import { TodoListFooterComponent } from './todo-list-footer/todo-list-footer.component';
 import { ApiService } from './api.service';
+import { TodoListItemDetailsComponent } from './todo-list-item-details/todo-list-item-details.component';
+import { TodosComponent } from './todos/todos.component';
+import { AppRoutingModule, routingComponents } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -17,9 +20,12 @@ import { ApiService } from './api.service';
     TodoListHeaderComponent,
     TodoListComponent,
     TodoListItemComponent,
-    TodoListFooterComponent
+    TodoListFooterComponent,
+    TodoListItemDetailsComponent,
+    TodosComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     FormsModule,
     HttpModule

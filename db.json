@@ -1,24 +1,22 @@
 {
   "todos": [
     {
-      "id": 1,
       "title": "Learn Angular 2",
-      "complete": false
+      "complete": false,
+      "id": 1,
+      "description": "angular2.com is really good resource"
     },
     {
-      "title": "d",
+      "title": "Assignment",
+      "description": "Write an essay with 2000 words",
       "complete": false,
       "id": 2
     },
     {
-      "title": "d",
+      "title": "go to food store",
       "complete": false,
+      "description": "HUngry :)",
       "id": 3
-    },
-    {
-      "title": "f",
-      "complete": false,
-      "id": 4
     }
   ]
 }

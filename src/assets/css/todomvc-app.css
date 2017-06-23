@@ -43,7 +43,7 @@ body {
 
 .todoapp {
 	background: #fff;
-	margin: 130px 0 40px 0;
+	margin: 236px -500px 40px 400px;
 	position: relative;
 	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
 	            0 25px 50px 0 rgba(0, 0, 0, 0.1);
@@ -195,7 +195,7 @@ label[for='toggle-all'] {
 	word-break: break-all;
 	padding: 15px 60px 15px 15px;
 	margin-left: 45px;
-	display: block;
+	display: initial;
 	line-height: 1.2;
 	transition: color 0.4s;
 }
@@ -213,11 +213,15 @@ label[for='toggle-all'] {
 	bottom: 0;
 	width: 40px;
 	height: 40px;
-	margin: auto 0;
+	margin: 1 0;
 	font-size: 30px;
 	color: #cc9a9a;
 	margin-bottom: 11px;
 	transition: color 0.2s ease-out;
+}
+
+.todo-list li .edit-item {
+	margin-left: 2px;
 }
 
 .todo-list li .destroy:hover {
@@ -242,10 +246,14 @@ label[for='toggle-all'] {
 
 .footer {
 	color: #777;
-	padding: 10px 15px;
+	padding: 30px 15px;
 	height: 20px;
 	text-align: center;
 	border-top: 1px solid #e6e6e6;
+}
+
+.todo-form {
+	padding: 21px;
 }
 
 .footer:before {
