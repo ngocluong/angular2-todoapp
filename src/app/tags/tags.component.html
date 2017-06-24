@@ -1,0 +1,10 @@
+<button (click)="tree.treeModel.expandAll()">Expand all</button>
+<button (click)="tree.treeModel.collapseAll()">collapse all</button>
+<tree-root #tree [nodes]="nodes"[options]="options">
+  <ng-template #treeNodeTemplate let-node>
+    <span title="{{node.data.name}}">{{ node.data.name }}</span>
+    <button class="btn btn-info" (click)="newSubItem(tree, node)">+</button>
+    <button class="btn btn-info" (click)="newSiblingItem(tree, node)">Clone</button>
+    <button class="btn btn-info" (click)="removeNode(tree, node)">-</button>
+  </ng-template>
+</tree-root>

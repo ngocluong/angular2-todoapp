@@ -13,6 +13,9 @@ import { ApiService } from './api.service';
 import { TodoListItemDetailsComponent } from './todo-list-item-details/todo-list-item-details.component';
 import { TodosComponent } from './todos/todos.component';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
+import { TagsComponent } from './tags/tags.component';
+import { TagDataService } from './tag-data.service';
+import { TreeModule } from 'angular-tree-component';
 
 @NgModule({
   declarations: [
@@ -22,16 +25,19 @@ import { AppRoutingModule, routingComponents } from './app-routing.module';
     TodoListItemComponent,
     TodoListFooterComponent,
     TodoListItemDetailsComponent,
-    TodosComponent
+    TodosComponent,
+    TagsComponent
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
     FormsModule,
+    TreeModule,
     HttpModule
   ],
   providers: [
     TodoDataService,
+    TagDataService,
     ApiService
   ],
   bootstrap: [AppComponent]
