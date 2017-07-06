@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoDataService } from '../todo-data.service';
 import { Todo } from '../todo';
+import { LocalStorageService } from 'angular-2-local-storage';
 
 @Component({
   providers: [],
@@ -8,8 +9,11 @@ import { Todo } from '../todo';
   styleUrls: ['./todos.component.css']
 })
 export class TodosComponent implements OnInit {
-  todos: Todo[] = [];
-  constructor(private todoDataService: TodoDataService) {
+  todos: Todo[]=[];
+  hideDescription: boolean;
+
+  constructor(private todoDataService: TodoDataService, protected localStorageSer: LocalStorageService) {
+    this.hideDescription = this.localStorageSer.get('description') === 'true'
   }
 
   public ngOnInit() {
@@ -38,11 +42,27 @@ export class TodosComponent implements OnInit {
       );
   }
 
+  onDescriptionChange(value) {
+    this.localStorageSer.set('description', value);
+    this.hideDescription = value === 'true'
+  }
+
   onRemoveTodo(todo){
     this.todoDataService
       .deleteTodoById(todo.id)
       .subscribe(
         (_) => { this.todos = this.todos.filter((td) => td.id !== todo.id); }
       );
-  } 
+  }
+
+  getMoreTodos(page){
+    this.todoDataService
+      .getAllTodos(page)
+      .subscribe(
+        (additionTodos) => {
+          this.todos = this.todos.concat(additionTodos);
+          console.log(this.todos)
+        }
+      );
+  }
 }

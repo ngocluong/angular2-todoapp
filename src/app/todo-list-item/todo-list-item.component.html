@@ -4,3 +4,6 @@
   <button class="edit-item" routerLink="/todos/{{todo.id}}">✎</button>
   <button class="destroy" (click)="removeTodo(todo)"></button>
 </div>
+<div class="description" [class.hidden]="hideDescription">
+  {{todo.description}}
+</div>

@@ -8,8 +8,8 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./todo-list-item.component.css']
 })
 export class TodoListItemComponent {
-
   @Input() todo: Todo;
+  @Input() hideDescription: boolean;
 
   @Output()
   remove: EventEmitter<Todo> = new EventEmitter();

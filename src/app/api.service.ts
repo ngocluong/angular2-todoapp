@@ -13,8 +13,8 @@ export class ApiService {
 
   constructor(private http: Http) { }
 
-  public getAllTodo(): Observable<Todo[]> {
-    return this.http.get(API_URL + '/todos').map(response =>{
+  public getAllTodo(page= 1): Observable<Todo[]> {
+    return this.http.get(API_URL + `/todos?_page=${page}&_limit=25`).map(response =>{
       const todos = response.json();
       return todos.map((todo) => new Todo(todo));
     }).catch(this.handleError);

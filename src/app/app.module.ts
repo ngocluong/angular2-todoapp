@@ -16,6 +16,8 @@ import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { TagsComponent } from './tags/tags.component';
 import { TagDataService } from './tag-data.service';
 import { TreeModule } from 'angular-tree-component';
+import { InfiniteScrollModule } from 'angular2-infinite-scroll';
+import { LocalStorageModule } from 'angular-2-local-storage';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,12 @@ import { TreeModule } from 'angular-tree-component';
     BrowserModule,
     FormsModule,
     TreeModule,
-    HttpModule
+    HttpModule,
+    InfiniteScrollModule,
+    LocalStorageModule.withConfig({
+      prefix: 'my-todo',
+      storageType: 'localStorage'
+    })
   ],
   providers: [
     TodoDataService,

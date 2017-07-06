@@ -1,6 +1,17 @@
+<div class="filter">
+  <select name="hideDecription" (change)="onDescriptionChange($event.target.value)">
+    <option value="false" [selected]="hideDescription === false">Show title and description</option>
+    <option value="true" [selected]="hideDescription == true">Show title only</option>
+  </select>
+</div>
 <section class="todoapp">
-  <!-- header is now replaced with app-todo-list-header -->
   <app-todo-list-header (add)="onAddTodo($event)"></app-todo-list-header>
-  <app-todo-list [todos]="todos" (remove)="onRemoveTodo($event)" (toggleComplete)="onToggleTodoComplete($event)"></app-todo-list>
+  <app-todo-list [todos]="todos"
+    [hideDescription]="hideDescription"
+    (remove)="onRemoveTodo($event)" 
+    (toggleComplete)="onToggleTodoComplete($event)"
+    (getmore)="getMoreTodos($event)"
+  >
+  </app-todo-list>
   <app-todo-list-footer [todos]="todos"></app-todo-list-footer>
 </section>

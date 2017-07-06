@@ -1,10 +1,17 @@
 <section class="main" *ngIf="todos.length > 0">
+  <div class="search-results"
+    infinite-scroll
+    [infiniteScrollDistance]="scrollDistance"
+    [infiniteScrollThrottle]="throttle"
+    (scrolled)="onScrollDown()">
     <ul class="todo-list">
       <li *ngFor="let todo of todos" [class.completed]="todo.complete">
         <app-todo-list-item
           [todo]="todo"
+          [hideDescription]="hideDescription"
           (toggleComplete)="onToggleTodoComplete($event)"
           (remove)="onRemoveTodo($event)"></app-todo-list-item>
       </li>
     </ul>
-  </section>
+  </div>
+</section>
